@@ -18,9 +18,17 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^19.2.2",
+    "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
     "dir-archiver": "^1.1.1",
-    "node-sass": "^7.0.1",
-    "rtlcss": "^3.5.0"
+    "postcss": "^8.5.3",
+    "postcss-import": "^16.1.0",
+    "postcss-loader": "^8.1.1",
+    "rtlcss": "^3.5.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   },
   "rtlcssConfig": {
     "options": {
@@ -42,5 +50,9 @@
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
     "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map yarn.lock"
-  }
+  },
+  "dependencies": {
+    "sass": "^1.86.3"
+  },
+  "main": "index.js"
 }

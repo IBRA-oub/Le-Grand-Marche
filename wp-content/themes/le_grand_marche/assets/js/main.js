@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     rightBtn.addEventListener('click', () => loadProducts(currentPage + 1));
     leftBtn.addEventListener('click', () => loadProducts(currentPage - 1));
     
-    // testimonial slider
+    // --------testimonial slider---------
+    
     const carousel = document.querySelector(".carousel");
     const leftBtnCarousel = document.getElementById("left");
     const rightBtnCarousel = document.getElementById("right");
@@ -38,7 +39,22 @@ document.addEventListener("DOMContentLoaded", function () {
     rightBtnCarousel.addEventListener("click", () => {
       carousel.scrollLeft += cardWidth;
     }); 
+
+    // ----------- burger menu -----------
+
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navbar = document.querySelector('.main-navigation');
+    
+    burgerMenu.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+    });
+    
 })
+
+
+
+
 
   
 

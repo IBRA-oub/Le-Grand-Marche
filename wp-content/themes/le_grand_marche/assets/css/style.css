@@ -3,9 +3,20 @@
     margin: 0%;
     font-family: poppins,sans-serif;
 }
+body{
+    margin: 0% !important;
+}
 /* ===================header================ */
 .site-header{
-    /* background-color: black !important; */
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.active-header{
+    background-color: #F1F1F1;
     position: absolute;
     height: 100px;
     width: 100%;
@@ -17,6 +28,10 @@
     width: 188px;
     height: 56px;
 }
+
+.active-header .main-navigation{
+    width: 40%;
+}
 .main-navigation{
     width: 60%;
     display: flex;
@@ -25,19 +40,35 @@
     font-family: poppins,sans-serif;
     
 }
-.menu{
+.menu-menu-1-container{
     width: 60%;
+    display: flex;
+    justify-content: end;
+    padding-right: 30px;
 }
-.menu ul{
+.active-header .menu-menu-1-container{
     width: 100%;
+}
+.menu-menu-1-container ul{
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
+    list-style: none;
 
 }
 
-.menu ul li a{
+.active-header .menu-menu-1-container ul li a{
+    font-size: 17px;
+    text-decoration: none;
+    border: none;
+    color: #868889;
+    position: relative;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  .site-header .menu-menu-1-container ul li a{
   font-size: 17px;
   border: none;
   color: #ffffff;
@@ -46,7 +77,7 @@
   cursor: pointer;
 }
 
-.menu ul li a::before {
+.menu-menu-1-container ul li a::before {
   content: "";
   margin-top: 3px;
   position: absolute;
@@ -58,11 +89,11 @@
   transition: 0.5s ease;
 }
 
-.menu ul li a:hover {
+.menu-menu-1-container ul li a:hover {
   transition-delay: 0.5s;
 }
 
-.menu ul li a:hover::before {
+.menu-menu-1-container ul li a:hover::before {
   width: 100%;
 }
 
@@ -84,6 +115,8 @@
 }
 .sign-in-button{
     border:1px solid white;
+    text-align: center;
+    line-height: 50px;
     background-color: rgba(255, 255, 255, 0);
     color: white;
     transition: all 0.3s ease-in-out;
@@ -101,6 +134,8 @@
 .sign-up-button{
     background: linear-gradient(135deg, #FFFFFF, #ffffffbb);
     color: #507A32;
+    text-align: center;
+    line-height: 50px;
 }
 .sign-up-button:hover {
     border:none;
@@ -113,6 +148,9 @@
   }
   .current_page_item{
     border-bottom: 2px solid white;
+  }
+  .black-logo{
+
   }
 
 /* ===========================hero section=================== */
@@ -148,7 +186,7 @@
   
 }
 .title-text{
-    font-size: 55px;
+    font-size: clamp(1rem, 4vw, 55px);
     width: 80%;
     line-height: 70px;
     color: white;
@@ -160,7 +198,7 @@
 }
 
 .description-text{
-    font-size: 15px;
+    font-size: clamp(1rem, 4vw, 15px);
     width: 80%;
     color: rgba(255, 255, 255, 0.791);
     font-weight: 200;
@@ -357,6 +395,7 @@
     margin: 0 0 1rem;
     width: 100%;
     border-radius: 4px;
+    height: 260px;
 }
 .woocommerce-LoopProduct-link{
     text-decoration: none;
@@ -975,7 +1014,395 @@ width:500px;
     margin-top: 30px;
 }
 
+/* ========= Responsive styles ========== */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .burger-menu svg {
+    display: none;
+}
 
+.burger-menu .icon-burger {
+    display: block;
+}
+
+.burger-menu.active .icon-burger {
+    display: none;
+}
+
+.burger-menu.active .icon-close {
+    display: block;
+}
+  @media (max-width: 768px) {
+.main-navigation{
+    flex-direction: column;
+        position: absolute;
+        top:0;
+        left:-100%;
+        width: 70%;
+        background: linear-gradient(125deg, #507A32, #67A034); 
+        height: 100vh;
+        z-index: 100;
+        justify-content:start;
+        align-items: start;
+        border-right: 1px solid white;
+}
+.menu ul{
+ flex-direction: column;
+align-items: start;
+padding: 20px;
+} 
+.menu ul li{
+    padding-top: 8px;
+}
+.auth-buttons-container{
+    flex-direction: column;
+   
+}
+.auth-buttons-container button{
+    margin-top: 10px;
+    margin-left: 40px; 
+}
+.active{
+    left: 0;
+    transition-duration: 1s;
+}
+.burger-menu{
+    display: block;
+}
+/* hero section responsive */
+
+.hero-section .content-container{
+    flex-direction: column;
+}
+.hero-section .text-button-container{
+    width: 100%;
+}
+.hero-section .text-button-container .text-container .title-text{
+    height: 70%;
+    font-size: 40px;
+    margin-top: 30px;
+    
+}
+.hero-section .text-button-container .text-container .description-text {
+   padding: 30px 0px;
+    
+}
+.hero-section .image-container {
+    display: none;  
+}
+.items-container{
+    height: 700px;
+}
+.site-footer {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .footer-container-content {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+  }
+
+  .footer-logo-text-container {
+    width: 100%;
+  }
+
+  .footer-text-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .desc-hour-container,
+  .info-add-container,
+  .tabs-container {
+    width: 100%;
+    text-align: start;
+  }
+
+  .footer-description-text,
+  .hours-open {
+    justify-content: start;
+    align-items: center;
+  }
+
+  .tabs-container {
+    margin-top: 20px;
+  }
+
+  .tabs-container p:first-child {
+    margin-top: 10px;
+  }
+
+  .footer-image-container {
+ display: none;
+  }
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 1) - 12px);
+  }
+  .right-button {
+    right: 1%;
+  }
+  .left-button{
+    left: 1%;
+  }
+}
+@media (max-width: 1024px) {
+    .text {
+      font-size: 40px;
+      text-align: center;
+    }
+  
+    .best-text-container {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .text-buttons-conatiner {
+      flex-direction: column;
+      height: auto;
+      gap: 10px;
+    }
+  
+    .more-buttons {
+      width: 100px;
+    }
+
+    .woocommerce ul.products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .all-items {
+      width: 90%;
+    }
+    .services-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 0;
+      }
+    
+      .text-services-container {
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+      }
+    
+      .headline {
+        font-size: 28px;
+        margin-bottom: 30px;
+      }
+    
+      .services-list li {
+        justify-content: center;
+        font-size: 16px;
+      }
+    
+      .image-container {
+        width: 100%;
+        padding: 20px;
+      }
+    
+      .img-bag img {
+        width: 100%;
+        height: auto;
+        max-width: 400px;
+        margin: 0 auto;
+        display: block;
+      }
+      .delivery-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 0;
+        margin-top: 160px;
+      }
+    
+      .delivery-man-image-container,
+      .delivery-text-container {
+        width: 100%;
+        height: auto;
+        text-align: center;
+      }
+    
+      .delivery-man-image-container {
+        justify-content: center;
+        position: relative;
+      }
+    
+      .bg-delivery {
+        margin: 0 auto;
+      }
+    
+      .image-dilevry-men {
+        width: 100%;
+        max-width: 350px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+      }
+    
+      .delivery-text-container {
+        padding: 40px 20px;
+      }
+    
+      .delivery-heading {
+        font-size: 36px;
+      }
+    
+      .signup-button {
+        align-self: center;
+      }
+      .app-download-container {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 0;
+        text-align: center;
+        margin-top: 60px;
+      }
+    
+      .app-download-text,
+      .app-mockup-container {
+        width: 100%;
+        height: auto;
+      }
+    
+      .app-title {
+        font-size: 28px;
+      }
+    
+      .app-store-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    
+      .app-mockup-front {
+        position: static;
+        height: auto;
+        max-width: 100%;
+        margin-top: 20px;
+      }
+      .testimonials-title-text{
+        font-size: 30px;
+      }
+      .subscription-section {
+        height: auto;
+        padding: 40px 0 50px;
+      }
+    
+      .subscription-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        align-items: center;
+      }
+    
+      .form-container,
+      .image-container {
+        width: 100%;
+        height: auto;
+      }
+    
+      .subscription-text {
+        font-size: 36px;
+        text-align: center;
+      }
+    
+      .input-container {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+      }
+    
+      .input {
+        width: 100%;
+        max-width: 350px;
+      }
+    
+      .sub-button {
+        width: 100%;
+        max-width: 200px;
+      }
+    
+      .image-legume {
+        position: static;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin-top: 30px;
+      }
+  }
+  
+  @media (max-width: 600px) {
+    .text {
+      font-size: 30px;
+    }
+  
+    .woocommerce ul.products {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .woocommerce ul.products li.product {
+      width: 100%;
+    }
+  
+    .row-buttons {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .best-seller-section {
+      height: auto;
+      padding-bottom: 30px;
+    }
+  
+    .items-container {
+      height: auto;
+    }
+    .headline {
+        font-size: 22px;
+      }
+    
+      .services-list {
+        padding: 0;
+      }
+    
+      .services-list li {
+        font-size: 15px;
+      }
+      .delivery-heading {
+        font-size: 28px;
+      }
+    
+      .delivery-description {
+        font-size: 14px;
+      }
+    
+      .signup-button {
+        padding: 12px 40px;
+        font-size: 11px;
+      }
+      .app-title {
+        font-size: 22px;
+      }
+    
+      .store-badge {
+        height: 40px;
+      }
+    
+      .app-download-text {
+        padding: 10px;
+      }
+  }
+  
+
+  
 
 
 

@@ -7,7 +7,7 @@ get_header();
 ?>
 <section class="container-all">
     <div class="form-connexion-container">
-        <h2>Connexion</h2>
+        <h2 class="auth-title">Connexion</h2>
 
         <form class="login-form">
             <label for="username">Name</label>

@@ -1,21 +1,17 @@
 <?php
 /**
  * The template for displaying sign-up page
- *  Template Name: sign-up
+ *  Template Name: sign-in
  */
-
 get_header();
 ?>
 <section class="container-all">
     <div class="form-connexion-container">
-        <h2>S'inscrire</h2>
+        <h2>Connexion</h2>
 
         <form class="login-form">
             <label for="username">Name</label>
             <input class="input-connexion-form" type="text" id="username" placeholder="Enter user name" />
-
-            <label for="email">Email</label>
-            <input class="input-connexion-form" type="email" id="email" placeholder="Enter email" />
 
             <label for="password">Password</label>
             <div class="password-wrapper">
@@ -24,22 +20,17 @@ get_header();
                     <img class="eye-icon" src="/le-grand-marche/wp-content/uploads/2025/04/eye.png" alt="eye icon">
                 </span>
             </div>
-
-            <label for="confirm-password">confirm password</label>
-            <div class="password-wrapper">
-                <input class="input-connexion-form" type="password" id="confirm-password"
-                    placeholder="Confirm your password" />
-                <span class="toggle-password" id="confirm-eye-icon">
-                    <img class="eye-icon" src="/le-grand-marche/wp-content/uploads/2025/04/eye.png" alt="eye icon">
-                </span>
-            </div>
+            <a href="#" class="forgot-password">Forget password?</a>
 
             <button type="submit" class="btn primary">Connectez-vous</button>
+            <button type="button" class="btn google">
+                <span class="google-icon">G</span> Connectez-vous avec google
+            </button>
         </form>
 
         <p class="signup-link">
-            Already have an account ?
-            <a href="/le-grand-marche/sign-in">Sign In</a>
+            Vous n’avez pas de compte ?
+            <a href="/le-grand-marche/sign-up">S'inscrire</a>
         </p>
     </div>
 </section>

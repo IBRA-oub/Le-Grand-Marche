@@ -194,7 +194,7 @@ if (class_exists('WooCommerce')) {
 function theme_enqueue_styles()
 {
 	wp_enqueue_style('theme-styles', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0');
-	wp_enqueue_style('theme-styles', get_template_directory_uri() . '/assets/css/auth-css.css', array(), '1.0.0');
+	wp_enqueue_style('auth-styles', get_template_directory_uri() . '/assets/css/auth-css.css', array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -204,7 +204,8 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 function theme_enqueue_javascript()
 {
-	wp_enqueue_script('theme-styles', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0');
+	wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0');
+	wp_enqueue_script('auth-script', get_template_directory_uri() . '/assets/js/auth-js.js', array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_javascript');
 /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying fruts page
- *  Template Name: fruits
+ *  Template Name: legumes
  */
 
 get_header();
@@ -10,7 +10,7 @@ get_header();
 <section class="first-section-container">
     <div class="text-img-container">
         <div class="desc-product-container">
-            <p class="fruits-title">Les fruits</p>
+            <p class="fruits-title">Les Légumes</p>
             <p class="fruits-description">Le lorem ipsum est, en imprimerie, une suite de mots sans signification
                 utilisée à titre
                 provisoire pour
@@ -27,7 +27,7 @@ get_header();
         </div>
         <div class=" img-container">
             <div class="bg-product-image"></div>
-            <img src="/le-grand-marche/wp-content/uploads/2025/04/colorful-fruits-1.png" loading="lazy"
+            <img src="/le-grand-marche/wp-content/uploads/2025/04/Group_199.png" loading="lazy"
                 alt="image of vegetables" class="image-product-section">
         </div>
     </div>
@@ -36,7 +36,7 @@ get_header();
 <div class="items-container">
     <div class="all-items">
 
-        <?php echo do_shortcode('[products paginate="true"  limit="21" columns="4" orderby="popularity" category="Fruits"]'); ?>
+        <?php echo do_shortcode('[products paginate="true"  limit="21" columns="4" orderby="popularity" category="legumes"]'); ?>
     </div>
 </div>
 <?php

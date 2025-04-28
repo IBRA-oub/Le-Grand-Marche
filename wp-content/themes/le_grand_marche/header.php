@@ -8,6 +8,13 @@
  *
  * @package le_grand_marche
  */
+if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+    wp_logout();
+    wp_redirect(home_url());
+    exit;
+}
+
+$current_user = wp_get_current_user();
 
 ?>
 <!doctype html>
@@ -17,9 +24,13 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <?php wp_head(); ?>
 </head>
+
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
@@ -29,10 +40,16 @@
 
     </div>
     <!--  ======web nav bar======-->
-    <header id="masthead" class="<?php echo (is_front_page()) ? 'site-header' : 'active-header'; ?>">
+    <?php
+    $template = get_page_template_slug();
+    $header_class = (is_front_page() || $template === 'fruits-page.php' || $template === 'legumes-page.php') ? 'site-header' : 'active-header';
+    ?>
+    <header id="masthead" class="<?php echo $header_class; ?>">
+
 
         <?php
-        if (is_front_page()) {
+        $template = get_page_template_slug();
+        if (is_front_page() || $template === 'fruits-page.php' || $template === 'legumes-page.php') {
             the_custom_logo();
         } else {
             echo '<a href="' . esc_url(home_url('/')) . '">
@@ -67,27 +84,40 @@
             <div class="user-buttons-container">
                 <div class="favoris">
                     <a href="">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512">
-                            <path fill="#ffffff"
-                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
-                        </svg>
+                        <i class="fa-solid fa-heart fa-lg" style="color: <?php
+                            $template = get_page_template_slug();
+                            if (is_front_page() || $template === 'fruits-page.php' || $template === 'legumes-page.php' || $template === 'favoris-page.php') {
+                                echo 'white';
+                            } else {
+                                echo '#86888982';
+                            }
+                            ?>;">
+                        </i>
+
                     </a>
                 </div>
                 <div class="cart">
                     <a href="">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 576 512">
-                            <path fill="#ffffff"
-                                d="M253.3 35.1c6.1-11.8 1.5-26.3-10.2-32.4s-26.3-1.5-32.4 10.2L117.6 192 32 192c-17.7 0-32 14.3-32 32s14.3 32 32 32L83.9 463.5C91 492 116.6 512 146 512L430 512c29.4 0 55-20 62.1-48.5L544 256c17.7 0 32-14.3 32-32s-14.3-32-32-32l-85.6 0L365.3 12.9C359.2 1.2 344.7-3.4 332.9 2.7s-16.3 20.6-10.2 32.4L404.3 192l-232.6 0L253.3 35.1zM192 304l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16zm96-16c8.8 0 16 7.2 16 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16zm128 16l0 96c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-96c0-8.8 7.2-16 16-16s16 7.2 16 16z" />
-                        </svg>
-
+                        <i class="fa-solid fa-basket-shopping fa-lg" style="color: <?php
+                            $template = get_page_template_slug();
+                            if (is_front_page() || $template === 'fruits-page.php' || $template === 'legumes-page.php' || $template === 'favoris-page.php') {
+                                echo 'white';
+                            } else {
+                                echo '#86888982';
+                            }
+                            ?>;"></i>
                     </a>
                 </div>
                 <div class="notification">
                     <a href="">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 448 512">
-                            <path fill="#ffffff"
-                                d="M224 0c-17.7 0-32 14.3-32 32l0 19.2C119 66 64 130.6 64 208l0 18.8c0 47-17.3 92.4-48.5 127.6l-7.4 8.3c-8.4 9.4-10.4 22.9-5.3 34.4S19.4 416 32 416l384 0c12.6 0 24-7.4 29.2-18.9s3.1-25-5.3-34.4l-7.4-8.3C401.3 319.2 384 273.9 384 226.8l0-18.8c0-77.4-55-142-128-156.8L256 32c0-17.7-14.3-32-32-32zm45.3 493.3c12-12 18.7-28.3 18.7-45.3l-64 0-64 0c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7z" />
-                        </svg>
+                        <i class="fa-solid fa-bell fa-lg" style="color: <?php
+                            $template = get_page_template_slug();
+                            if (is_front_page() || $template === 'fruits-page.php' || $template === 'legumes-page.php' || $template === 'favoris-page.php') {
+                                echo 'white';
+                            } else {
+                                echo '#86888982';
+                            }
+                            ?>;"></i>
                     </a>
                 </div>
                 <div class="profile-container">
@@ -109,8 +139,8 @@
                                 </div>
                             </div>
                             <div class="user-info">
-                                <h2>Nom et prénom</h2>
-                                <p>nomprenom@gmail.com</p>
+                                <h2><?php echo esc_html($current_user->display_name); ?></h2>
+                                <p><?php echo esc_html($current_user->user_email); ?></p>
                             </div>
                         </div>
                         <div class="popup-options">
@@ -136,7 +166,8 @@
                                             d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
                                     </svg>
                                 </span> Help</a>
-                            <a href="#" class="option logout"><span>
+                            <a href="<?php echo esc_url( add_query_arg( 'action', 'logout' ) ); ?>"
+                                class="option logout"><span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14"
                                         viewBox="0 0 512 512">
                                         <path fill="#dedede"
@@ -150,8 +181,6 @@
 
             </div>
             <?php endif; ?>
-
-
         </nav>
         <div class="burger-menu">
 

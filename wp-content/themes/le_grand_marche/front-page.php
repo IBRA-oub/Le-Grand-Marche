@@ -109,7 +109,7 @@ get_header();
 
     </div>
     <div class="items-container">
-        <div class="all-items" id="best-sellers-list">
+        <div class="all-items">
             <?php echo do_shortcode('[products limit="4" columns="4" orderby="popularity" category="Fruits"]'); ?>
         </div>
     </div>

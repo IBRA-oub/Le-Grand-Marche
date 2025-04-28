@@ -195,6 +195,7 @@ function theme_enqueue_styles()
 {
 	wp_enqueue_style('theme-styles', get_template_directory_uri() . '/assets/css/style.css', array(), '1.0.0');
 	wp_enqueue_style('auth-styles', get_template_directory_uri() . '/assets/css/auth-css.css', array(), '1.0.0');
+	wp_enqueue_style('product-styles', get_template_directory_uri() . '/assets/css/product-css.css', array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
@@ -206,6 +207,7 @@ function theme_enqueue_javascript()
 {
 	wp_enqueue_script('theme-script', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0');
 	wp_enqueue_script('auth-script', get_template_directory_uri() . '/assets/js/auth-js.js', array(), '1.0.0');
+	wp_enqueue_script('pop-up-script', get_template_directory_uri() . '/assets/js/pop-up.js', array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_javascript');
 /**
@@ -278,3 +280,6 @@ function load_best_sellers()
 
 add_action('wp_ajax_nopriv_load_best_sellers', 'load_best_sellers');
 add_action('wp_ajax_load_best_sellers', 'load_best_sellers');
+
+// Inclure les fonctions de login/register
+require_once get_template_directory() . '/inc/authentification.php';

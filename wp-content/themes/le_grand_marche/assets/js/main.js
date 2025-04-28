@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+     // ----------- burger menu -----------
+
+     const burgerMenu = document.querySelector('.burger-menu');
+     const navbar = document.querySelector('.main-navigation');
+     
+     burgerMenu.addEventListener('click', () => {
+         navbar.classList.toggle('active');
+         burgerMenu.classList.toggle('active');
+     });
+    //  --------------------------------------------
     let currentPage = 1;
     const limit = 4;
     const leftBtn = document.querySelector('.left-row');
@@ -40,33 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
       carousel.scrollLeft += cardWidth;
     }); 
 
-    // ----------- burger menu -----------
-
-    const burgerMenu = document.querySelector('.burger-menu');
-    const navbar = document.querySelector('.main-navigation');
-    
-    burgerMenu.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-        burgerMenu.classList.toggle('active');
-    });
-
-    // ---------------POP UP ---------
-    const profileIcon = document.getElementById('profileIcon');
-  const profilePopup = document.getElementById('profilePopup');
-
-  profileIcon.addEventListener('click', () => {
-    profilePopup.style.display = profilePopup.style.display === 'block' ? 'none' : 'block';
-  });
-
-  // Fermer le popup en cliquant en dehors
-  document.addEventListener('click', (e) => {
-    if (!document.querySelector('.profile-container').contains(e.target)) {
-      profilePopup.style.display = 'none';
-    }
-  });
-    
-      
-    
 })
 
 

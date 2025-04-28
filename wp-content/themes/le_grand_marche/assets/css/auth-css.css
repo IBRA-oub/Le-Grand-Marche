@@ -236,4 +236,18 @@
   .logout {
     color: #999;
   }
+  /* =========error style=========== */
+  .form-errors {
+    background-color: #ffe0e0;
+    border: 1px solid #ff4d4d;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: #d8000c;
+    margin: 5px 0;
+}
+
   

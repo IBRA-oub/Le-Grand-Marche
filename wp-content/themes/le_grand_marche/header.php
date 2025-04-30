@@ -8,6 +8,7 @@
  *
  * @package le_grand_marche
  */
+
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     wp_logout();
     wp_redirect(home_url());
@@ -15,6 +16,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 }
 
 $current_user = wp_get_current_user();
+
 
 ?>
 <!doctype html>
@@ -71,10 +73,12 @@ $current_user = wp_get_current_user();
             $template = get_page_template_slug();
 
             $on_auth_pages = $template === 'sign-in.php' || $template === 'sign-up.php';
+            $is_product_page = is_singular('product') && !is_user_logged_in();
+            $auth_class = $is_product_page ? 'active-auth-buttons-container' : 'auth-buttons-container';
             $logged_in = is_user_logged_in();
 
             if (!$logged_in && !$on_auth_pages): ?>
-            <div class="auth-buttons-container">
+            <div class="<?php echo $auth_class; ?>">
                 <a href="<?php echo esc_url(home_url('/sign-in')); ?>" class="buttons sign-in-button">Connexion</a>
                 <a href="<?php echo esc_url(home_url('/sign-up')); ?>" class="buttons sign-up-button">S'inscrire</a>
             </div>
@@ -166,7 +170,7 @@ $current_user = wp_get_current_user();
                                             d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336l24 0 0-64-24 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l48 0c13.3 0 24 10.7 24 24l0 88 8 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-80 0c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
                                     </svg>
                                 </span> Help</a>
-                            <a href="<?php echo esc_url( add_query_arg( 'action', 'logout' ) ); ?>"
+                            <a href="<?php echo esc_url(add_query_arg('action', 'logout')); ?>"
                                 class="option logout"><span>
                                     <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14"
                                         viewBox="0 0 512 512">

@@ -30,7 +30,7 @@ body{
 }
 
 .active-header .main-navigation{
-    width: 40%;
+    width: 53%;
 }
 .main-navigation{
     width: 60%;
@@ -105,6 +105,12 @@ body{
     align-items: center;
     
 }
+.active-auth-buttons-container{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .buttons{
     width:158px;
     height: 50px;
@@ -113,7 +119,15 @@ body{
     border-radius: 7px;
     cursor: pointer;
 }
-.sign-in-button{
+.active-auth-buttons-container .sign-in-button {
+    border:1px solid rgb(145, 145, 145);
+    text-align: center;
+    line-height: 50px;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(129, 129, 129) !important;
+    transition: all 0.3s ease-in-out;
+}
+.auth-buttons-container .sign-in-button {
     border:1px solid white;
     text-align: center;
     line-height: 50px;
@@ -131,7 +145,13 @@ body{
     -1px -1px 6px 0px rgb(186, 186, 186); 
   }
 
-.sign-up-button{
+  .auth-buttons-container .sign-up-button{
+    background: linear-gradient(135deg, #FFFFFF, #ffffffbb);
+    color: #507A32;
+    text-align: center;
+    line-height: 50px;
+}
+.active-auth-buttons-container .sign-up-button{
     background: linear-gradient(135deg, #FFFFFF, #ffffffbb);
     color: #507A32;
     text-align: center;
